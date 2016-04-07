@@ -1,20 +1,21 @@
 <?php
 /**
  * @var \Phalcon\Mvc\View\Engine\Php $this
+ * @var Test $model
  */
 ?>
 
 <div class="row">
     <nav>
         <ul class="pager">
-            <li class="previous"><?php echo $this->tag->linkTo(array("test", "Go Back")) ?></li>
+            <li class="previous"><?php echo $this->tag->linkTo(array("test", "Back")) ?></li>
         </ul>
     </nav>
 </div>
 
 <div class="page-header">
     <h1>
-        Create test
+        View test #<?php echo $model->id . '  ' . $model->name ; ?>
     </h1>
 </div>
 
@@ -23,7 +24,7 @@
 <?php
     echo $this->tag->form(
         array(
-            "test/create",
+            "test/save",
             "autocomplete" => "off",
             "class" => "form-horizontal"
         )
@@ -37,6 +38,8 @@
     </div>
 </div>
 
+
+<?php echo $this->tag->hiddenField("id") ?>
 
 <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">

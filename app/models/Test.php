@@ -25,6 +25,11 @@ class Test extends \Phalcon\Mvc\Model
         return 'test';
     }
 
+    protected function initialize()
+    {
+    }
+
+
     /**
      * Allows to query a set of records that match the specified conditions
      *
