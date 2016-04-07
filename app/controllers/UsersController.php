@@ -29,11 +29,20 @@ class UsersController extends \Phalcon\Mvc\Controller
     }
 
     public function saveAction(){
-        BHelper::print_r2($this->request->getPost());
-        //print_r2($this->request);
+        /**
+         * @var \Phalcon\Validation\MessageInterface $msg
+         */
+
+        $user = new Users();
+        $success = $user->save($this->request->getPost(),['name','email']);
+        if ($success)
+            echo '成功';
+        else
+            foreach ($user->getMessages() as $msg) {
+               echo  $msg->getMessage() . '<br>';
+            }
+
         die;
-
-
     }
 
 }

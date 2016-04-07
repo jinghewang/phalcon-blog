@@ -26,6 +26,12 @@ try {
      */
     $application = new \Phalcon\Mvc\Application($di);
 
+    //di
+    $di = new \Phalcon\Di\FactoryDefault();
+/*    $di->set('db',function(){
+
+    });*/
+
     echo $application->handle()->getContent();
 
 } catch (\Exception $e) {
